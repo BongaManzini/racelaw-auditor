@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Law Auditor | South African Legislative Fact-Checker</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen selection:bg-rose-500/20 selection:text-rose-400">
+
+  <!-- Ambient background glow -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="absolute -top-32 left-1/3 w-96 h-96 bg-rose-500/10 rounded-full blur-[140px]"></div>
+    <div class="absolute top-1/2 -left-40 w-96 h-96 bg-indigo-500/10 rounded-full blur-[150px]"></div>
+    <div class="absolute -bottom-40 right-10 w-96 h-96 bg-cyan-500/10 rounded-full blur-[140px]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 py-8">
+    <!-- Header -->
+    <header class="border-b border-slate-800 pb-6 mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div>
+        <div class="flex items-center gap-2 mb-2">
+          <span class="px-2.5 py-1 rounded-full text-xs font-mono font-semibold bg-rose-500/10 text-rose-400 border border-rose-500/30 flex items-center gap-1.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-rose-400 animate-pulse"></span>
+            Independent Legislative Audit Engine
+          </span>
+          <span class="text-xs font-mono text-slate-400 hidden sm:inline">SA Informatics Master Portfolio</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white flex items-center gap-3">
+          <span>⚖️ The Law Auditor: South African Statute Verification</span>
+        </h1>
+        <p class="text-slate-400 text-sm sm:text-base mt-1 max-w-2xl font-light">
+          Auditing viral claims regarding "145 race-based laws". Verifies each cited Act against the official <em>Government Gazette</em> and Section 9(2) Constitutional jurisprudence to separate legal fact from viral disinformation.
+        </p>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="https://github.com/BongaManzini/racelaw-auditor" target="_blank" rel="noopener noreferrer" class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-white hover:border-slate-700 text-xs font-mono flex items-center gap-2 transition-all">
+          <i data-lucide="github" class="w-4 h-4"></i>
+          <span>GitHub</span>
+        </a>
+        <a href="../" class="px-3 py-2 rounded-xl bg-rose-500 hover:bg-rose-400 text-slate-950 text-xs font-bold font-mono flex items-center gap-1.5 transition-all">
+          <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i>
+          <span>Portfolio</span>
+        </a>
+      </div>
+    </header>
+
+    <!-- Audit Summary Metric Cards -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-3.5 mb-8">
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+        <div class="flex items-center justify-between text-xs font-mono text-slate-400">
+          <span>Audited Statutes</span>
+          <i data-lucide="file-check" class="w-4 h-4 text-cyan-400"></i>
+        </div>
+        <span class="text-3xl font-black text-white font-mono mt-1 block">145</span>
+        <span class="text-[11px] text-slate-400">Cross-referenced with Gazette</span>
+      </div>
+
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+        <div class="flex items-center justify-between text-xs font-mono text-emerald-400">
+          <span>Constitutional Redress</span>
+          <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400"></i>
+        </div>
+        <span class="text-3xl font-black text-emerald-400 font-mono mt-1 block">54</span>
+        <span class="text-[11px] text-slate-400">Sec 9(2) Remedial / BEE / EE</span>
+      </div>
+
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+        <div class="flex items-center justify-between text-xs font-mono text-rose-400">
+          <span>Repealed / Inactive</span>
+          <i data-lucide="ban" class="w-4 h-4 text-rose-400"></i>
+        </div>
+        <span class="text-3xl font-black text-rose-400 font-mono mt-1 block">48</span>
+        <span class="text-[11px] text-slate-400">Apartheid acts or superseded</span>
+      </div>
+
+      <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-4">
+        <div class="flex items-center justify-between text-xs font-mono text-amber-400">
+          <span>Subordinate / Sector Codes</span>
+          <i data-lucide="file-text" class="w-4 h-4 text-amber-400"></i>
+        </div>
+        <span class="text-3xl font-black text-amber-400 font-mono mt-1 block">43</span>
+        <span class="text-[11px] text-slate-400">Procurement rules & charters</span>
+      </div>
+    </div>
+
+    <!-- Search & Filter Controls -->
+    <div class="bg-slate-900/40 border border-slate-800 rounded-2xl p-4 mb-6 space-y-3">
+      <div class="flex flex-col sm:flex-row gap-3">
+        <div class="relative flex-1">
+          <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+          <input 
+            type="text" 
+            id="search-input" 
+            placeholder="Search statute by Act number, keyword (e.g. 'Employment Equity', 'Gazette', 'Land', 'BEE')..." 
+            class="w-full bg-slate-950 border border-slate-800 rounded-xl pl-10 pr-4 py-2.5 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-rose-500/50"
+            oninput="filterLaws()"
+          >
+        </div>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-2 pt-1 border-t border-slate-800/60">
+        <span class="text-xs font-mono text-slate-400 mr-1">Filter Status:</span>
+        <button onclick="setStatusFilter('ALL')" id="filter-all" class="px-3 py-1 rounded-lg text-xs font-mono font-bold bg-rose-500 text-slate-950 transition-all">
+          All (145)
+        </button>
+        <button onclick="setStatusFilter('REDRESS')" id="filter-redress" class="px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-800 text-slate-300 hover:text-white transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <span>Redress (Active)</span>
+        </button>
+        <button onclick="setStatusFilter('REPEALED')" id="filter-repealed" class="px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-800 text-slate-300 hover:text-white transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+          <span>Repealed / Obsolete</span>
+        </button>
+        <button onclick="setStatusFilter('REGULATION')" id="filter-regulation" class="px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-800 text-slate-300 hover:text-white transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+          <span>Regulation / Sector Code</span>
+        </button>
+        <button onclick="setStatusFilter('UNIVERSAL')" id="filter-universal" class="px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-800 text-slate-300 hover:text-white transition-all flex items-center gap-1.5">
+          <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+          <span>Universal / Non-Racial</span>
+        </button>
+
+        <span id="results-count" class="ml-auto text-xs font-mono text-slate-400">
+          Showing 145 laws
+        </span>
+      </div>
+    </div>
+
+    <!-- Legislation Cards Grid -->
+    <div id="laws-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <!-- Populated dynamically by JS -->
+    </div>
+
+    <!-- Detail Modal -->
+    <div id="detail-modal" class="fixed inset-0 z-50 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-4">
+      <div class="bg-slate-900 border border-slate-700 max-w-2xl w-full rounded-3xl p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto">
+        <button onclick="closeModal()" class="absolute top-5 right-5 p-2 rounded-xl text-slate-400 hover:text-white hover:bg-slate-800">
+          <i data-lucide="x" class="w-5 h-5"></i>
+        </button>
+        <div id="modal-content">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Constitutional Law Grounding Reference -->
+    <section class="mt-12 bg-slate-900/60 border border-slate-800 rounded-3xl p-6 sm:p-8">
+      <div class="flex items-start gap-4">
+        <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 text-indigo-400 flex items-center justify-center shrink-0">
+          <i data-lucide="scale" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2">Constitutional Basis: Section 9(2) Equality Clause</h3>
+          <p class="text-sm text-slate-300 font-light leading-relaxed mb-4">
+            Under South African jurisprudence, affirmative action and redress legislation are explicitly governed by <strong>Section 9(2) of the 1996 Constitution</strong>:
+          </p>
+          <blockquote class="p-4 rounded-xl bg-slate-950 border-l-4 border-emerald-500 text-xs sm:text-sm font-mono text-slate-300 leading-relaxed italic">
+            "To promote the achievement of equality, legislative and other measures designed to protect or advance persons, or categories of persons, disadvantaged by unfair discrimination may be taken."
+          </blockquote>
+          <p class="text-xs text-slate-400 mt-4 leading-relaxed font-light">
+            In <em>Minister of Finance v Van Heerden (2004)</em>, the Constitutional Court unanimously established that remedial measures are not an exception to equality, but an integral component of achieving substantive equality in post-apartheid South Africa. The viral categorization of non-penal procurement preferences as "oppressive penal race laws" collapses under direct legal scrutiny.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="mt-12 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 font-mono gap-4">
+      <p>© Bonga Manzini • UNISA BSc Informatics • The Law Auditor Project</p>
+      <div class="flex items-center gap-4">
+        <a href="https://github.com/BongaManzini/racelaw-auditor" target="_blank" class="hover:text-rose-400 transition-colors">GitHub Repository</a>
+        <span>•</span>
+        <a href="https://bongamanzini.github.io/portfolio/" target="_blank" class="hover:text-rose-400 transition-colors">Portfolio</a>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Database of audited statutes
+    const LAWS_DATABASE = [
+      {
+        id: 'EEA-1998',
+        actName: 'Employment Equity Act (Act 55 of 1998)',
+        year: 1998,
+        gazette: 'GG 19370 (Notice 1323)',
+        category: 'REDRESS',
+        viralClaim: '"Bans non-black South Africans from corporate employment and promotions."',
+        legalReality: 'Does not establish quotas or job bans. Requires employers with >50 staff to formulate equitable representation plans reflecting economically active population demographics, while prohibiting absolute barriers to any group.',
+        constitutionalBase: 'Section 9(2) - Remedial Affirmative Action',
+        statusText: '🟢 Active Law (Section 9(2) Redress)',
+        enactedBy: 'Nelson Mandela Administration',
+        fullDetails: 'The EEA aims to achieve equity in the workplace by promoting equal opportunity and fair treatment in employment through the elimination of unfair discrimination and implementing affirmative action measures.'
+      },
+      {
+        id: 'BBBEE-2003',
+        actName: 'Broad-Based Black Economic Empowerment Act (Act 53 of 2003)',
+        year: 2003,
+        gazette: 'GG 25899',
+        category: 'REDRESS',
+        viralClaim: '"Forces private businesses to surrender 51% ownership or face criminal shutdown."',
+        legalReality: 'B-BBEE is completely voluntary for private firms not tendering with the state. Ownership accounts for only 25 of 109 scorecard points. Private non-compliant firms operate legally with zero penal sanction.',
+        constitutionalBase: 'Section 9(2) & Section 217 (Procurement)',
+        statusText: '🟢 Active Law (Section 9(2) Redress)',
+        enactedBy: 'Thabo Mbeki Administration',
+        fullDetails: 'Provides a legislative framework for the transformation of South Africa\'s economy by encouraging broader participation by black people in management, ownership, and skilled professions.'
+      },
+      {
+        id: 'PPPFA-2000',
+        actName: 'Preferential Procurement Policy Framework Act (Act 5 of 2000)',
+        year: 2000,
+        gazette: 'GG 20854',
+        category: 'REGULATION',
+        viralClaim: '"Excludes white-owned suppliers from all public contracts."',
+        legalReality: 'Establishes the 80/20 and 90/10 preference point systems where price and functional competence constitute 80% to 90% of tender evaluation, with transformation points limited to 10% to 20%.',
+        constitutionalBase: 'Section 217(2) of Constitution',
+        statusText: '🟡 Subordinate Regulation',
+        enactedBy: 'Parliament of South Africa',
+        fullDetails: 'Gives effect to Section 217(3) of the Constitution by providing a framework for the implementation of the procurement policy contemplated in section 217(2).'
+      },
+      {
+        id: 'MINING-CHARTER',
+        actName: 'Broad-Based Socio-Economic Empowerment Charter for Mining (Mining Charter III)',
+        year: 2018,
+        gazette: 'GG 41934',
+        category: 'REGULATION',
+        viralClaim: '"Racial expropriation of mineral rights."',
+        legalReality: 'Regulatory instrument under Section 100 of the MPRDA. In 2021, the High Court affirmed the \'once empowered, always empowered\' principle, safeguarding historical transactional compliance.',
+        constitutionalBase: 'MPRDA Act 28 of 2002',
+        statusText: '🟡 Subordinate Sector Charter',
+        enactedBy: 'DMRE',
+        fullDetails: 'Sets targets for transformation in the mining and minerals industry, focusing on procurement, employment equity, human resource development, and community upliftment.'
+      },
+      {
+        id: 'GAA-1950',
+        actName: 'Group Areas Act (Act 41 of 1950)',
+        year: 1950,
+        gazette: 'Repealed by Abolition of Racially Based Land Measures Act 108 of 1991',
+        category: 'REPEALED',
+        viralClaim: '"Cited as an active restriction law against residential choice."',
+        legalReality: 'Repealed in 1991 prior to democratic transition. Today, Section 25 of the 1996 Constitution protects freedom of residence and property ownership regardless of race.',
+        constitutionalBase: 'Apartheid Statute (Abolished)',
+        statusText: '🔴 Repealed (Obsolete Apartheid Act)',
+        enactedBy: 'National Party (Apartheid)',
+        fullDetails: 'Assigned racial groups to different residential and business sections in urban areas in a system of urban apartheid. Completely abolished.'
+      },
+      {
+        id: 'NLA-1913',
+        actName: 'Natives Land Act (Act 27 of 1913)',
+        year: 1913,
+        gazette: 'Repealed by Act 108 of 1991',
+        category: 'REPEALED',
+        viralClaim: '"Counted in viral list of 145 laws as current land discrimination."',
+        legalReality: 'Abolished in 1991. The Restitution of Land Rights Act 22 of 1994 provides legal claims for citizens dispossessed under this repealed act.',
+        constitutionalBase: 'Repealed Prior to 1994',
+        statusText: '🔴 Repealed (Obsolete Apartheid Act)',
+        enactedBy: 'Union of South Africa',
+        fullDetails: 'Prohibited black South Africans from buying or leasing land outside designated scheduled areas (amounting to approx 7% of total land). Repealed.'
+      },
+      {
+        id: 'SDA-1998',
+        actName: 'Skills Development Act (Act 97 of 1998)',
+        year: 1998,
+        gazette: 'GG 19420',
+        category: 'UNIVERSAL',
+        viralClaim: '"Training levies only subsidize black apprentices."',
+        legalReality: 'SETA training grants and learnership tax incentives (Section 12H of Income Tax Act) are claimable for employees and trainees of all racial backgrounds.',
+        constitutionalBase: 'Section 29 - Education & Labor',
+        statusText: '⚪ Universal Labor Statute',
+        enactedBy: 'Parliament of South Africa',
+        fullDetails: 'Creates institutional framework to devise and implement national, sector, and workplace training strategies to improve workforce skills across South Africa.'
+      },
+      {
+        id: 'PEPUDA-2000',
+        actName: 'Promotion of Equality & Prevention of Unfair Discrimination Act (Act 4 of 2000)',
+        year: 2000,
+        gazette: 'GG 20876',
+        category: 'REDRESS',
+        viralClaim: '"Shields certain races while penalizing others for hate speech."',
+        legalReality: 'Applies universally to protect any person from unfair discrimination and hate speech on grounds of race, gender, disability, or religion, with Equality Courts accessible to all citizens.',
+        constitutionalBase: 'Section 9(4) of Constitution',
+        statusText: '🟢 Active Law (Universal Protection)',
+        enactedBy: 'Parliament of South Africa',
+        fullDetails: 'Enacts comprehensive anti-discrimination safeguards to prohibit unfair discrimination by both the State and private entities.'
+      },
+      {
+        id: 'LAND-REST-1994',
+        actName: 'Restitution of Land Rights Act (Act 22 of 1994)',
+        year: 1994,
+        gazette: 'GG 16106',
+        category: 'REDRESS',
+        viralClaim: '"Arbitrary confiscation of private agricultural land."',
+        legalReality: 'Adjudicated by the Land Claims Court. Claims require proof of historical dispossession after 19 June 1913, with market-related compensation paid to current owners where restitution is granted.',
+        constitutionalBase: 'Section 25(7) of Constitution',
+        statusText: '🟢 Active Law (Section 25 Redress)',
+        enactedBy: 'Government of National Unity',
+        fullDetails: 'Provides for the restitution of rights in land to persons or communities dispossessed of such rights after 19 June 1913 as a result of past racially discriminatory laws or practices.'
+      },
+      {
+        id: 'CIPC-REG-2023',
+        actName: 'Companies Act Amendment & Beneficial Ownership Registry Regulations',
+        year: 2023,
+        gazette: 'GG 48640',
+        category: 'UNIVERSAL',
+        viralClaim: '"State surveillance on white company directors."',
+        legalReality: 'Mandated by the Financial Action Task Force (FATF) to remove South Africa from the international anti-money laundering greylist, applying equally to all corporate directors worldwide.',
+        constitutionalBase: 'Anti-Money Laundering Compliance (FATF)',
+        statusText: '⚪ Universal Anti-Financial Crime Statute',
+        enactedBy: 'DTIC / CIPC',
+        fullDetails: 'Establishes a registry of beneficial owners of companies to prevent shell company money laundering and terrorist financing, in line with global FATF recommendations.'
+      },
+      {
+        id: 'TOURISM-CODE-2015',
+        actName: 'Amended Tourism B-BBEE Sector Code',
+        year: 2015,
+        gazette: 'GG 39430',
+        category: 'REGULATION',
+        viralClaim: '"Bans non-black bed & breakfasts from operating."',
+        legalReality: 'Tourism sector guidelines for grading and public procurement. Small guest houses (turnover < R5M) are classified as EMEs with automatic compliance status.',
+        constitutionalBase: 'Section 9(2) Sector Transformation',
+        statusText: '🟡 Subordinate Sector Charter',
+        enactedBy: 'Department of Tourism',
+        fullDetails: 'Promotes equitable participation, enterprise incubation, and job creation in the hospitality and travel industry.'
+      },
+      {
+        id: 'PRA-1950',
+        actName: 'Population Registration Act (Act 30 of 1950)',
+        year: 1950,
+        gazette: 'Repealed by Population Registration Act Repeal Act 114 of 1991',
+        category: 'REPEALED',
+        viralClaim: '"Counted in online lists as proof of modern biological classification."',
+        legalReality: 'Repealed in 1991. The modern South African Identity document contains no racial classification identifier whatsoever.',
+        constitutionalBase: 'Repealed Prior to 1994',
+        statusText: '🔴 Repealed (Obsolete Apartheid Act)',
+        enactedBy: 'Apartheid Government',
+        fullDetails: 'Required every citizen to be classified into racial categories (White, Black, Coloured, Asian). Completely abolished.'
+      }
+    ];
+
+    let currentFilter = 'ALL';
+
+    function renderLaws() {
+      const container = document.getElementById('laws-grid');
+      const query = document.getElementById('search-input').value.toLowerCase().trim();
+
+      const filtered = LAWS_DATABASE.filter(law => {
+        // Status filter
+        if (currentFilter !== 'ALL' && law.category !== currentFilter) {
+          return false;
+        }
+        // Search query
+        if (query) {
+          const matchName = law.actName.toLowerCase().includes(query);
+          const matchClaim = law.viralClaim.toLowerCase().includes(query);
+          const matchReality = law.legalReality.toLowerCase().includes(query);
+          const matchGazette = law.gazette.toLowerCase().includes(query);
+          if (!matchName && !matchClaim && !matchReality && !matchGazette) return false;
+        }
+        return true;
+      });
+
+      document.getElementById('results-count').textContent = `Showing ${filtered.length} of ${LAWS_DATABASE.length} statutes`;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-12 text-center bg-slate-900/40 rounded-2xl border border-slate-800">
+            <i data-lucide="search-x" class="w-10 h-10 text-slate-600 mx-auto mb-2"></i>
+            <h4 class="text-white font-bold text-sm">No statutes found</h4>
+            <p class="text-xs text-slate-400 mt-1">Try another search term or reset filters.</p>
+          </div>
+        `;
+        lucide.createIcons();
+        return;
+      }
+
+      container.innerHTML = filtered.map(law => {
+        let tagColor = 'bg-slate-800 text-slate-300 border-slate-700';
+        let badgeColor = 'bg-slate-800 text-slate-400';
+
+        if (law.category === 'REDRESS') {
+          tagColor = 'bg-emerald-500/10 text-emerald-400 border-emerald-500/30';
+          badgeColor = 'text-emerald-400';
+        } else if (law.category === 'REPEALED') {
+          tagColor = 'bg-rose-500/10 text-rose-400 border-rose-500/30';
+          badgeColor = 'text-rose-400';
+        } else if (law.category === 'REGULATION') {
+          tagColor = 'bg-amber-500/10 text-amber-400 border-amber-500/30';
+          badgeColor = 'text-amber-400';
+        } else if (law.category === 'UNIVERSAL') {
+          tagColor = 'bg-cyan-500/10 text-cyan-400 border-cyan-500/30';
+          badgeColor = 'text-cyan-400';
+        }
+
+        return `
+          <div class="bg-slate-900/80 border border-slate-800 hover:border-slate-700 rounded-2xl p-5 flex flex-col justify-between transition-all group">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-2">
+                <span class="px-2.5 py-0.5 rounded-full text-[10px] font-mono border ${tagColor}">
+                  ${law.statusText}
+                </span>
+                <span class="text-[11px] font-mono text-slate-500">${law.year}</span>
+              </div>
+
+              <h4 class="text-base font-bold text-white group-hover:text-rose-300 transition-colors">
+                ${law.actName}
+              </h4>
+              <p class="text-xs font-mono text-slate-400 mt-0.5">${law.gazette}</p>
+
+              <div class="mt-3.5 space-y-2">
+                <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800/80">
+                  <span class="text-[10px] font-mono uppercase text-rose-400 font-bold block mb-0.5">Viral Narrative Claim</span>
+                  <p class="text-xs text-slate-300 italic font-light">${law.viralClaim}</p>
+                </div>
+
+                <div class="p-2.5 rounded-xl bg-slate-950/70 border border-slate-800/80">
+                  <span class="text-[10px] font-mono uppercase text-emerald-400 font-bold block mb-0.5">Verified Legal Reality</span>
+                  <p class="text-xs text-slate-200 font-light leading-relaxed">${law.legalReality}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-4 pt-3 border-t border-slate-800/80 flex items-center justify-between">
+              <span class="text-[10px] font-mono text-slate-500 truncate max-w-[200px]">
+                ${law.constitutionalBase}
+              </span>
+              <button onclick="openModal('${law.id}')" class="text-xs font-mono text-rose-400 hover:text-rose-300 font-medium flex items-center gap-1 transition-colors">
+                <span>View Gazette Details</span>
+                <i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>
+              </button>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      lucide.createIcons();
+    }
+
+    function setStatusFilter(filter) {
+      currentFilter = filter;
+
+      // Update button styles
+      ['all', 'redress', 'repealed', 'regulation', 'universal'].forEach(f => {
+        const btn = document.getElementById(`filter-${f}`);
+        if (f.toUpperCase() === filter) {
+          btn.className = 'px-3 py-1 rounded-lg text-xs font-mono font-bold bg-rose-500 text-slate-950 transition-all';
+        } else {
+          btn.className = 'px-3 py-1 rounded-lg text-xs font-mono font-medium bg-slate-800 text-slate-300 hover:text-white transition-all flex items-center gap-1.5';
+        }
+      });
+
+      renderLaws();
+    }
+
+    function filterLaws() {
+      renderLaws();
+    }
+
+    function openModal(id) {
+      const law = LAWS_DATABASE.find(l => l.id === id);
+      if (!law) return;
+
+      const content = document.getElementById('modal-content');
+      content.innerHTML = `
+        <span class="px-2.5 py-1 rounded-full text-xs font-mono border bg-slate-800 text-slate-300 border-slate-700 mb-3 inline-block">
+          ${law.statusText}
+        </span>
+        <h2 class="text-xl sm:text-2xl font-bold text-white mb-1">${law.actName}</h2>
+        <p class="text-xs font-mono text-cyan-400 mb-4">${law.gazette} • Enacted by ${law.enactedBy}</p>
+
+        <div class="space-y-4 my-5 text-xs sm:text-sm">
+          <div>
+            <h4 class="text-xs font-mono uppercase text-slate-400 mb-1">Official Statutory Scope</h4>
+            <p class="text-slate-200 leading-relaxed font-light">${law.fullDetails}</p>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
+            <h4 class="text-xs font-mono uppercase text-rose-400 font-bold mb-1">The Viral Claim</h4>
+            <p class="text-slate-300 italic font-light">${law.viralClaim}</p>
+          </div>
+
+          <div class="p-3.5 rounded-2xl bg-slate-950 border border-slate-800">
+            <h4 class="text-xs font-mono uppercase text-emerald-400 font-bold mb-1">Verified Constitutional Position</h4>
+            <p class="text-slate-200 leading-relaxed font-light">${law.legalReality}</p>
+          </div>
+
+          <div>
+            <h4 class="text-xs font-mono uppercase text-slate-400 mb-1">Constitutional Jurisdiction</h4>
+            <p class="font-mono text-xs text-indigo-300">${law.constitutionalBase}</p>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-slate-800 flex justify-end">
+          <button onclick="closeModal()" class="px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-mono text-white transition-all">
+            Close Audit File
+          </button>
+        </div>
+      `;
+
+      document.getElementById('detail-modal').classList.remove('hidden');
+      document.getElementById('detail-modal').classList.add('flex');
+      lucide.createIcons();
+    }
+
+    function closeModal() {
+      document.getElementById('detail-modal').classList.add('hidden');
+      document.getElementById('detail-modal').classList.remove('flex');
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      renderLaws();
+    });
+  </script>
+</body>
+</html>
