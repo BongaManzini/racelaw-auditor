@@ -1,83 +1,75 @@
-# ⚖️ The Law Auditor: South African Legislative Fact-Checker
-### An Empirical Legal Informatics & Constitutional Redress Research Platform
+# ⚖️ The Law Auditor: Verifying Viral Claims of 145 Race Laws
+### An Independent Student Legal Audit Checking Statutes Against the Official Government Gazette
 
-> **Live Research Platform**: [https://bongamanzini.github.io/racelaw-auditor/](https://bongamanzini.github.io/racelaw-auditor/)  
-> **Classification**: Civic Technology & Legal Informatics Research Site  
-> **Lead Researcher & Engineer**: Bonga Manzini (BSc Informatics, UNISA)  
-
----
-
-## 🔬 Research Dossier: The 11-Point Framework
-
-### 1. Who (Target Stakeholders & Audience)
-- **Primary Audience:** Legal practitioners, constitutional scholars, investigative journalists, foreign investors evaluating political risk, and civil society advocates.
-- **Institutional Stakeholders:** Parliamentary Monitoring Group (PMG), South African Human Rights Commission (SAHRC), South African Law Reform Commission (SALRC), Law Society of South Africa, and international trade bodies assessing bilateral compliance (e.g. AGOA review panels).
-
-### 2. Where (Geographical & Institutional Scope)
-- **Jurisdiction:** Republic of South Africa.
-- **Constitutional Jurisdiction:** Supreme Court of Appeal (Bloemfontein) and the Constitutional Court of South Africa (Braamfontein, Johannesburg).
-- **Statutory Repository:** Republic of South Africa *Government Gazette* printed by the Government Printing Works (Pretoria).
-
-### 3. Why (Systemic Motivation & Urgency)
-- **Societal Impact:** Viral disinformation campaigns and international political lobbying continuously circulate unverified claims alleging that post-1994 South Africa operates *"over 140 discriminatory race laws—more than Apartheid."* This narrative fuels racial polarization, triggers capital flight, and weaponizes false equivalences between criminal racial oppression and constitutional remedial redress.
-- **Informatics Mandate:** Build an open-access, verifiable legal informatics engine that indexes, audits, and categorizes every cited statute directly against primary statutory gazettes and Constitutional Court jurisprudence.
-
-### 4. How (Methodological & Technical Approach)
-- **Methodology:** Statutory Classification and Legal Informatics Deconstruction.
-  1. *Statute Ingestion & Extraction:* Catalogued the widely circulated "145 Race Laws" dossier.
-  2. *Constitutional Mapping:* Cross-referenced each citation against **Section 9(2)** of the 1996 Constitution and Constitutional Court precedent (*Minister of Finance v Van Heerden 2004*).
-  3. *Taxonomic Disaggregation:* Classified each entry into 4 rigorous legal statuses:
-     - 🟢 **Constitutional Redress (Section 9(2))**: Non-penal developmental incentives (B-BBEE, Employment Equity).
-     - 🔴 **Repealed Apartheid Statutes**: Laws abolished prior to 1994 (e.g. Group Areas Act 1950, Population Registration Act 1950) falsely listed as active law.
-     - 🟡 **Subordinate Regulations & Sector Charters**: Administrative guidelines lacking primary legislative penal sanctions.
-     - ⚪ **Universal Non-Racial Compliance**: International regulatory standards (e.g. FATF Anti-Money Laundering beneficial ownership registries) falsely labeled as race-based statutes.
-- **Technology Stack:** High-speed client-side search engine (Vanilla ESNext, Tailwind CSS, Lucide Icons) with instant multi-facet filtering and zero external API dependencies.
-
-### 5. When (Temporal Context & Legal Milestones)
-- **1948–1990:** Enactment of formal Apartheid legal architecture (Prohibition of Mixed Marriages Act 1949, Population Registration Act 1950, Group Areas Act 1950, Bantu Education Act 1953).
-- **April 27, 1994:** Interim Constitution takes effect, invalidating discriminatory legislation via the Bill of Rights.
-- **February 4, 1997:** Promulgation of the final Constitution of the Republic of South Africa (Act 108 of 1996).
-- **July 2004:** Landmark Constitutional Court ruling in *Minister of Finance v Van Heerden* establishing that remedial restitution is a constitutional imperative to achieve substantive equality, not an exception to non-discrimination.
-- **2023–2026:** Viral circulation of unverified "145 Race Laws" lists during South African electoral cycles and international trade summits.
-
-### 6. The Problem Statement
-- **The Disinformation Claim:** Opponents of economic redress claim that South Africa has established a "reverse-Apartheid legal regime" consisting of 145 separate racial penal codes that systematically criminalize minority employment.
-- **The Empirical Reality:** Analysis of the 145 citations proves that **0 active laws carry criminal penal sanctions based on race**. The cited list artificially inflates its count by:
-  1. Including repealed Apartheid-era acts that were struck down in 1994.
-  2. Double-counting non-statutory sector charter draft gazettes.
-  3. Counting international banking compliance requirements (FATF KYC regulations) that collect demographic statistics for anti-corruption monitoring.
-  4. Mischaracterizing voluntary affirmative procurement incentives as coercive criminal bans.
-
-### 7. The Data Sourced
-1. **Republic of South Africa Government Gazette**: Official repository of Acts of Parliament and ministerial proclamations.
-2. **Constitutional Court of South Africa Law Reports**: Case law on equality jurisprudence (*Van Heerden 2004*, *Solidarity v Department of Correctional Services 2016*, *Barnard v SAPS 2014*).
-3. **Parliamentary Monitoring Group (PMG) Database**: Legislative history, public hearings, and statutory repeal tracking.
-4. **South African Law Reform Commission (SALRC)**: Project 25 on Statutory Law Revision (identifying redundant and repealed statutes).
-
-### 8. Why I Chose This Data
-- **Unquestioned Legal Validity:** The *Government Gazette* is the official organ of state; an Act cannot have legal effect without gazetting.
-- **Judicial Authority:** Constitutional Court interpretations are binding on all courts, organs of state, and international tribunals under Section 167 of the Constitution.
-- **Elimination of Hearsay:** Grounding the audit in verbatim gazette text strips away ideological spin and journalistic distortions.
-
-### 9. How I Worked On The Data
-- Extracted all 145 cited statutory references from viral social media documents and opposition submissions.
-- Built a structured JSON statutory registry capturing: Act Title, Number, Year of Promulgation, Current Enforceability Status, Cited Section Text, Actual Text, and Constitutional Analysis.
-- Computed legal status ratios: Constitutional Redress (48%), Subordinate Regulations (28%), Repealed/Pre-1994 (14%), and Non-Racial Universal Statutes (10%).
-
-### 10. What I Plan To Achieve From It
-- **Civic Legal Literacy:** Demystify the legal system for entrepreneurs and employees who are misled by online panic.
-- **Countering Sovereign Disinformation:** Provide foreign investors, embassies, and human rights bodies with a factual legal repository verifying the actual operational reality of South African statutes.
-- **Informatics Public Service:** Demonstrate how software engineering and data science can serve as constitutional defense mechanisms.
-
-### 11. Market Understanding & Legal Landscape
-- **Public Sentiment:** Complex racial anxiety stemming from historical inequality (South Africa has the highest Gini coefficient in the world at 0.67) and economic stagnation.
-- **Regulatory Pressure:** International compliance bodies (FATF, OECD) demand rigorous transparency. Misinformation damages South Africa's investment grade and sovereign credit ratings.
+> **Live Website**: [https://bongamanzini.github.io/racelaw-auditor/](https://bongamanzini.github.io/racelaw-auditor/)  
+> **Built by**: Bonga Manzini (BSc Informatics student at UNISA)
 
 ---
 
-## 🎮 Interactive Features Walkthrough
+## 🔬 About This Project
 
-1. **Full-Text Legal Search**: Instant debounced searching across Act names, numbers, years, and ministerial portfolios.
-2. **Four-Tier Status Filtering**: One-click toggling between Constitutional Redress, Repealed Apartheid Statutes, Sector Charters, and Universal Compliance.
-3. **Gazette Verification Modal**: Side-by-side comparison panel displaying the viral claim on the left and the verbatim *Government Gazette* clause on the right.
-4. **Constitutional Jurisprudence Explainer**: Interactive briefing on Section 9(2) and the legal definition of substantive vs formal equality.
+A list claiming that South Africa has '145 race-based laws' was widely shared across news debates, talk radio, and social media. People were arguing that modern laws like B-BBEE and Employment Equity are 'just apartheid in reverse'.
+
+I wanted to find out if that claim was actually true. I went through the official South African Government Gazette, SAFLII legal databases, and Law Reform Commission records to audit every single cited act.
+
+Many cited acts were old apartheid laws from the 1950s that were repealed decades ago. Other cited acts were standard democratic programs protected under Section 9(2) of our Constitution (our Bill of Rights), which allows the government to help people who were historically disadvantaged. I built this searchable tool so anyone can read the actual acts and see what is real and what is repealed.
+
+---
+
+## The 11 Questions: The Facts Behind The Project
+
+### 1. Who is this for?
+- Law students, journalists, voters, and curious citizens who want to know what laws are actually active in South Africa.
+
+### 2. Where does this focus on?
+- South African national legislation and the official Government Gazette.
+
+### 3. Why did I build it?
+- Public debates were getting heated based on an unverified viral PDF. I wanted to build a neutral, factual search engine where anyone can verify statutes in seconds.
+
+### 4. How does the tool work?
+- A fast search bar where you can type in any act (or filter by decade from 1910 to 2026).
+- Shows badges for Active, Repealed, or Constitutional Redress.
+- Links directly to the original Government Gazette notices.
+
+### 5. When were these laws passed?
+- Spans historical legislation from 1910 to the present day (1994–2026).
+
+### 6. The Problem I Noticed
+- **The Myth**: A viral document claimed 145 discriminatory laws exist, without explaining that many were repealed decades ago or were created to fix historical inequalities under the Constitution.
+- **The Reality**: Modern constitutional redress laws are voluntary business development incentives, not criminal penalties like apartheid laws.
+
+### 7. Where I Got The Data
+1. **The South African Government Gazette**: Official state notices.
+2. **SAFLII (Southern African Legal Information Institute)**: Comprehensive database of statutes and court rulings.
+3. **South African Law Reform Commission (SALRC)**: Official repeal lists (Project 25).
+
+### 8. Why I Trusted This Source
+- The Government Gazette is the official legal publication of the Republic of South Africa.
+- SAFLII is the gold standard for free public access to legal texts.
+
+### 9. How I Built It
+- I collected all cited statutes, verified their legal status with SALRC records, and wrote a clean JavaScript search tool with zero slow backend delays.
+
+### 10. What I Hope To Achieve
+- Provide an honest, neutral civic tool that helps people fact-check legal claims in under 10 seconds.
+
+### 11. Why This Matters In Real Life
+- Legal language can be confusing. Translating statutes into plain English bridges the gap between lawyers and everyday citizens.
+
+---
+
+## 🛠️ Tech Stack
+- **HTML5 & Vanilla JavaScript**
+- **Tailwind CSS**
+- **Search & Filtering Engine** (runs 100% in browser)
+
+---
+
+## 🤝 Contributing & Pull Requests
+
+Found an unlisted statute or want to update legal references?
+1. Fork this repository
+2. Create a branch (`git checkout -b feature/statute-update`)
+3. Add comments explaining your changes
+4. Submit a Pull Request!
