@@ -1,12 +1,12 @@
-# ⚖️ The Law Auditor: Verifying Viral Claims of 145 Race Laws
+# ️ The Law Auditor: Verifying Viral Claims of 145 Race Laws
 ### An Independent Student Legal Audit Checking Statutes Against the Official Government Gazette
 
-> **Live Website**: [https://bongamanzini.github.io/racelaw-auditor/](https://bongamanzini.github.io/racelaw-auditor/)  
+> **Live Website**: [https://bongamanzini.github.io/racelaw-auditor/](https://bongamanzini.github.io/racelaw-auditor/) 
 > **Built by**: Bonga Manzini (BSc Informatics student at UNISA)
 
 ---
 
-## 🔬 About This Project
+## About This Project
 
 A list claiming that South Africa has '145 race-based laws' was widely shared across news debates, talk radio, and social media. People were arguing that modern laws like B-BBEE and Employment Equity are 'just apartheid in reverse'.
 
@@ -59,14 +59,14 @@ Many cited acts were old apartheid laws from the 1950s that were repealed decade
 
 ---
 
-## 🛠️ Tech Stack
+## ️ Tech Stack
 - **HTML5 & Vanilla JavaScript**
 - **Tailwind CSS**
 - **Search & Filtering Engine** (runs 100% in browser)
 
 ---
 
-## 🤝 Contributing & Pull Requests
+## Contributing & Pull Requests
 
 Found an unlisted statute or want to update legal references?
 1. Fork this repository
